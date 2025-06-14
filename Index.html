@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Langtian VIP Video</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background-color: #0e0e0e;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: linear-gradient(90deg, #d60000, #5c0000);
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+    }
+    header h1 {
+      margin: 10px 0;
+      font-size: 2rem;
+    }
+    img.logo {
+      width: 140px;
+      border-radius: 10px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 12px;
+      font-size: 16px;
+      margin: 20px auto;
+      border-radius: 25px;
+      border: 1px solid #333;
+      display: block;
+      text-align: center;
+    }
+    h2 {
+      color: #ff5555;
+      margin-top: 40px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+    .video-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+      padding: 20px;
+    }
+    .video-box {
+      background: #1c1c1c;
+      padding: 15px;
+      border-radius: 15px;
+      width: 320px;
+      box-shadow: 0 0 10px #ff0000aa;
+      transition: transform 0.3s ease;
+    }
+    .video-box:hover {
+      transform: scale(1.03);
+    }
+    video {
+      width: 100%;
+      border-radius: 10px;
+    }
+    footer {
+      background-color: #111;
+      padding: 40px 20px;
+      color: #eee;
+      text-align: center;
+    }
+    .payment-methods {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .payment-box {
+      background: #2a2a2a;
+      padding: 20px;
+      border-radius: 15px;
+      width: 220px;
+      box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+    }
+    .payment-box img {
+      width: 90px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://via.placeholder.com/140x40?text=Langtian+Logo" alt="Logo" class="logo">
+    <h1>Langtian VIP Video</h1>
+    <input type="text" id="search" placeholder="Cari Video..." onkeyup="searchVideos()">
+  </header>
+
+  <h2>🎁 Video Gratis</h2>
+  <div class="video-container" id="freeVideos">
+    <div class="video-box" data-title="Video Gratis Motivasi">
+      <h3>Video Gratis Motivasi</h3>
+      <video controls>
+        <source src="gratis1.mp4" type="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+    </div>
+  </div>
+
+  <h2>🔒 Video VIP</h2>
+  <div class="video-container" id="videoList">
+    <div class="video-box" data-title="Video Motivasi">
+      <h3>Video Motivasi</h3>
+      <video controls>
+        <source src="video1.mp4" type="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+    </div>
+
+    <div class="video-box" data-title="Film Action VIP">
+      <h3>Film Action VIP</h3>
+      <video controls>
+        <source src="video2.mp4" type="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+    </div>
+
+    <div class="video-box" data-title="Tutorial Rahasia">
+      <h3>Tutorial Rahasia</h3>
+      <video controls>
+        <source src="video3.mp4" type="video/mp4">
+        Browser tidak mendukung video.
+      </video>
+    </div>
+  </div>
+
+  <footer>
+    <h2>💳 Metode Pembayaran VIP</h2>
+    <div class="payment-methods">
+      <div class="payment-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Bank_BRI_logo.svg/2560px-Bank_BRI_logo.svg.png" alt="BRI">
+        <p><strong>Bank BRI</strong><br>No. Rek: 1234 5678 9000<br>a.n Langtian Media</p>
+      </div>
+      <div class="payment-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Dana_Logo.png" alt="DANA">
+        <p><strong>DANA</strong><br>No: 0812 3456 7890<br>a.n Langtian Media</p>
+      </div>
+      <div class="payment-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Logo_ovo_purple.svg" alt="OVO">
+        <p><strong>OVO</strong><br>No: 0819 9992 0780<br>a.n Yusuf</p>
+      </div>
+    </div>
+    <p>Setelah bayar, kirim bukti transfer ke <strong>WhatsApp 0819-9920-7808</strong> untuk aktivasi VIP.</p>
+  </footer>
+
+  <script>
+    function searchVideos() {
+      const input = document.getElementById('search').value.toLowerCase();
+      const allVideos = document.querySelectorAll('.video-box');
+      allVideos.forEach(box => {
+        const title = box.getAttribute('data-title').toLowerCase();
+        box.style.display = title.includes(input) ? 'block' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
